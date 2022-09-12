@@ -3,7 +3,8 @@ import React from "react"
 
 const Login: React.FC = () => {
     const onFinish = (values: any) => {
-        console.log("Success:", values)
+        // handle remember me:
+        console.log("handled remember me")
     }
 
     const onFinishFailed = (errorInfo: any) => {
