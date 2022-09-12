@@ -49,10 +49,20 @@ const Login: React.FC = () => {
                 <Checkbox>Remember me</Checkbox>
             </Form.Item>
 
-            <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-                <Button type="primary" htmlType="submit">
-                    Submit
-                </Button>
+            <Form.Item noStyle shouldUpdate>
+                {({ getFieldsValue }) => {
+                    const { username, password } = getFieldsValue()
+                    const formIsComplete = !!username && !!password
+                    return (
+                        <Button
+                            type="primary"
+                            htmlType="submit"
+                            disabled={!formIsComplete}
+                        >
+                            Log In
+                        </Button>
+                    )
+                }}
             </Form.Item>
         </Form>
     )
